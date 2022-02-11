@@ -8,8 +8,7 @@ import textwrap
 
 from . import consts
 
-DIR_FOR_LINKER = os.environ.get("MCL_PATH", '/home/hubert/stuff/WPPT2/sem2/ss2/mcl/build/install/')
-#DIR_FOR_LINKER = os.environ.get("MCL_PATH", '<mcl install path>')
+DIR_FOR_LINKER = os.environ.get("MCL_PATH", '<mcl install path>')
 
 
 @contextlib.contextmanager
