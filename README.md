@@ -14,7 +14,7 @@ Please clone this repository and set the `DIR_FOR_LINKER` varriable in `hook.py`
 
 ```python
 import sys
-sys.path.insert(1, '<path to this repo>')
+sys.path.insert(1, '<path to cloned repo>')
 
 from mcl import Fr
 
@@ -38,7 +38,7 @@ There is a small library `jlib.py` contains functions, that stores and loads the
 
 ```python
 import sys
-sys.path.insert(1, '<path to this repo>')
+sys.path.insert(1, '<path to cloned repo>')
 
 from mcl import Fr
 from mcl import G1
