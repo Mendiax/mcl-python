@@ -8,7 +8,7 @@ For now the only supported curve is `BLS12_384` (named in library `BN384_256`)
 
 ## Installation
 
-Please clone this repository and setup path for the installed mcl library in `hook.py` in mcl folder.
+Please clone this repository and set the `DIR_FOR_LINKER` varriable in `hook.py` in mcl folder to the compiled and installed mcl library.
 
 ## Usage
 
