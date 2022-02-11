@@ -13,10 +13,13 @@ Please clone this repository and set the `DIR_FOR_LINKER` varriable in `hook.py`
 ## Usage
 
 ```python
-import mcl
+import sys
+sys.path.insert(1, '<path to this repo>')
 
-fr = new mcl.Fr()
-fr.setByCSPRNG()
+from mcl import Fr
+
+# create new random fr
+fr = Fr.rnd()
 ```
 
 For more examples, please check [tests](tests/).
@@ -28,6 +31,29 @@ Tests are written in `unittest`.
 ```
 python3 -m unittest discover tests/
 ```
+
+## Jlib
+
+There is a small library `jlib.py` contains functions, that stores and loads the results of mcl into json in order to provide capability of exchanging the information in a consistent format.
+
+```python
+import sys
+sys.path.insert(1, '<path to this repo>')
+
+from mcl import Fr
+from mcl import G1
+
+a = Fr.rnd()
+x = Fr.rnd()
+Q = G1.hashAndMapTo(b'abc')
+A = Q * a
+X = Q * x
+
+# creaing a json message
+message = jstore({'A': A, 'X': X})
+
+# unpacking json message
+A_, X_ = jload({'A': G1, 'X': G1}, message)
 
 ## Patches
 
