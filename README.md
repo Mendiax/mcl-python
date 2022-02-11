@@ -35,6 +35,14 @@ Tests are written in `unittest`.
 python3 -m unittest discover tests/
 ```
 
+## Patches
+
+The library needed some bugfixes and implementation of some missing features in order to solve laboratory lists.
+
+- Patched `serialize` function, which cut the buffer after first null. Now the function takes into account the length of the buffer returned from otiginal mcl
+- Implemented missing power operation for `GT`
+- Implemented `setHashOf` function for creating hash of `Fr` values
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 

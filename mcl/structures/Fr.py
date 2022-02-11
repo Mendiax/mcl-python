@@ -21,6 +21,12 @@ from . import base
     builder.method("setByCSPRNG"),
     builder.method("setInt"),
     builder.method("setStr"),
+    builder.method("setHashOf"),
 )
 class Fr(base.Structure):
     _fields_ = [("v", ctypes.c_ulonglong * consts.FR_SIZE)]
+
+    def rnd():
+        fr = Fr()
+        fr.setByCSPRNG()
+        return fr

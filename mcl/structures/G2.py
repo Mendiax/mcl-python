@@ -25,3 +25,7 @@ class G2(base.Structure):
         ("y", Fp2),
         ("z", Fp2),
     ]
+
+    def __init__(self, s=None):
+        if s is not None:
+            self.setStr(s)
