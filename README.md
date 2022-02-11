@@ -8,9 +8,7 @@ For now the only supported curve is `BLS12_384` (named in library `BN384_256`)
 
 ## Installation
 
-**This package requires [mcl](https://github.com/herumi/mcl) to be preinstalled.**
-
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install mcl-python.
+Please clone this repository and setup path for the installed mcl library in `hook.py` in mcl folder.
 
 ```bash
 pip install mcl
