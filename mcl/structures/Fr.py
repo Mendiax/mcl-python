@@ -1,5 +1,5 @@
 import ctypes
-
+from abc import ABC, abstractmethod
 from .. import builder
 from .. import consts
 from . import base
@@ -26,7 +26,88 @@ from . import base
 class Fr(base.Structure):
     _fields_ = [("v", ctypes.c_ulonglong * consts.FR_SIZE)]
 
-    def rnd():
+    @abstractmethod
+    def __add__(self, other: 'Fr') -> 'Fr':
+        """Perform addition operation."""
+        pass
+
+    @abstractmethod
+    def __eq__(self, other: 'Fr') -> bool:
+        """Check for equality."""
+        pass
+
+    @abstractmethod
+    def __invert__(self) -> 'Fr':
+        """Perform inversion operation."""
+        pass
+
+    @abstractmethod
+    def __mul__(self, other: 'Fr') -> 'Fr':
+        """Perform multiplication operation."""
+        pass
+
+    @abstractmethod
+    def __neg__(self) -> 'Fr':
+        """Negate the current value."""
+        pass
+
+    @abstractmethod
+    def __sub__(self, other: 'Fr') -> 'Fr':
+        """Perform subtraction operation."""
+        pass
+
+    @abstractmethod
+    def __truediv__(self, other: 'Fr') -> 'Fr':
+        """Perform true division operation."""
+        pass
+
+    @abstractmethod
+    def deserialize(self, value: bytes) -> None:
+        """Deserialize a serialized object."""
+        pass
+
+    @abstractmethod
+    def getStr(self, mode: int = 10) -> bytes:
+        """Get string representation."""
+        pass
+
+    @abstractmethod
+    def isOne(self) -> bool:
+        """Check if the value is one."""
+        pass
+
+    @abstractmethod
+    def isZero(self) -> bool:
+        """Check if the value is zero."""
+        pass
+
+    @abstractmethod
+    def serialize(self, mode: int = 10) -> bytes:
+        """Serialize the current object."""
+        pass
+
+    @abstractmethod
+    def setByCSPRNG(self) -> None:
+        """Set the value using a CSPRNG."""
+        pass
+
+    @abstractmethod
+    def setInt(self, value: int) -> None:
+        """Set the value to an integer."""
+        pass
+
+    @abstractmethod
+    def setStr(self, value: bytes, mode: int = 10) -> None:
+        """Set the value from a string."""
+        pass
+
+    @abstractmethod
+    def setHashOf(self, value: bytes) -> None:
+        """Set the value by hashing."""
+        pass
+
+    @staticmethod
+    def rnd() -> 'Fr':
         fr = Fr()
         fr.setByCSPRNG()
         return fr
