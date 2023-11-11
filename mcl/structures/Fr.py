@@ -26,6 +26,14 @@ from . import base
 class Fr(base.Structure):
     _fields_ = [("v", ctypes.c_ulonglong * consts.FR_SIZE)]
 
+    def __init__(self, value:None|int|bytes=None):
+        if isinstance(value, int):
+            self.setInt(value)
+        elif isinstance(value, bytes):
+            self.setStr(value)
+        elif value is not None:
+            raise TypeError("Fr can only be instantiated with int, bytes, or None")
+
     @abstractmethod
     def __add__(self, other: 'Fr') -> 'Fr':
         """Perform addition operation."""
@@ -108,6 +116,12 @@ class Fr(base.Structure):
 
     @staticmethod
     def rnd() -> 'Fr':
+        fr = Fr()
+        fr.setByCSPRNG()
+        return fr
+
+    @staticmethod
+    def get_int(val : int) -> 'Fr':
         fr = Fr()
         fr.setByCSPRNG()
         return fr

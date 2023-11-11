@@ -100,6 +100,15 @@ class FrTests(unittest.TestCase):
             deserialized.deserialize(serialized)
             self.assertEqual(self.fr, deserialized, "Deserialized object should be equal to the original")
 
+    def test_implicit_conversion(self):
+        fr = Fr()
+        fr.setByCSPRNG()
+
+        fr_1 = Fr()
+        fr_1.setInt(1)
+
+        self.assertEqual(fr + fr_1, fr + Fr(1))
+
 
 if __name__ == '__main__':
     unittest.main()
