@@ -109,8 +109,8 @@ class Fr(base.Structure):
         """Set the value from a string."""
         pass
 
-    @abstractmethod
-    def setHashOf(self, value: bytes) -> None:
+    @staticmethod
+    def setHashOf(value: bytes) -> 'Fr':
         """Set the value by hashing."""
         pass
 

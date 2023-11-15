@@ -20,6 +20,11 @@ class FrTestsTypes(unittest.TestCase):
         self.assertIsInstance(result_16, bytes, "getStr should return a str")
         self.assertNotEqual(result_10, result_16, "different modes are the same")
 
+    def test_set_hash(self):
+        # Check if getStr returns a str
+        fr = Fr.setHashOf(b"1234567890")
+        self.assertIsInstance(fr, Fr, "setHashOf returns string")
+
     def test_add(self):
         # Check if __add__ returns an instance of Fr
         fr1 = Fr()
