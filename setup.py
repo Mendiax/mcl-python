@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="mcl",
-    version="0.0.6",
+    version="0.0.7",
     author="Piotr Szyma",
     author_email="thompson2908@gmail.com",
     description="Python wrapper for mcl library",
@@ -18,5 +18,5 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires=">=3.7",
+    python_requires=">=3.10",
 )

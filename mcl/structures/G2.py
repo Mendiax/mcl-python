@@ -58,8 +58,8 @@ class G2(base.Structure):
     def getStr(self) -> bytes:
         pass
 
-    @abstractmethod
-    def hashAndMapTo(self, value: bytes) -> 'G2':
+    @staticmethod
+    def hashAndMapTo(value: bytes) -> 'G2':
         pass
 
     @abstractmethod
