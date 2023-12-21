@@ -1,5 +1,7 @@
+import copy
 import ctypes
 from abc import ABC, abstractmethod
+from typing import Union
 from .. import builder
 from .. import consts
 from . import base
@@ -26,11 +28,13 @@ from . import base
 class Fr(base.Structure):
     _fields_ = [("v", ctypes.c_ulonglong * consts.FR_SIZE)]
 
-    def __init__(self, value:None|int|bytes=None):
+    def __init__(self, value:Union[None,int,bytes,'Fr']=None):
         if isinstance(value, int):
             self.setInt(value)
         elif isinstance(value, bytes):
             self.setStr(value)
+        elif isinstance(value, Fr):
+            self.setStr(value.getStr())
         elif value is not None:
             raise TypeError("Fr can only be instantiated with int, bytes, or None")
 

@@ -32,6 +32,15 @@ class FrTests(unittest.TestCase):
         self.assertEqual(self.fr.getStr(), b"1",\
                          "The integer value should be set correctly")
 
+    def test_set_fr(self):
+        a = Fr(1)
+        b = Fr(a)
+        self.assertEqual(a, b, 'Fr(Fr) failed')
+
+        b.setInt(2)
+        self.assertNotEqual(a,b, 'Fr(Fr) do not created new Fr')
+
+
     def test_mul(self):
         # Tests multiplication of two Fr instances
         result = self.fr * Fr()
