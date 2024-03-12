@@ -1,5 +1,5 @@
-import copy
 import ctypes
+from typing import Union
 from abc import ABC, abstractmethod
 from typing import Union
 from .. import builder
